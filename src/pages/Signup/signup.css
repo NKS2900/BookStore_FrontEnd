@@ -1,0 +1,99 @@
+.formSignup {
+    border: 2px solid #f1f1f1;
+    border-radius: 12px;
+    width: 600px;
+    height: 450px;
+    margin-top: 500px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    margin-left: 420px;
+    display: grid;
+}
+
+input[type=text], input[type=password], input[type=email], input[type=number], textarea, select {
+    padding: 10px 20px;
+    margin: 11px 0;
+    box-sizing: border-box;
+    border-radius: 12px;
+    width: 50%;
+    border: none;
+    margin-right: 10%;
+    outline: none;
+    box-shadow: initial;
+}
+
+#signup-btn {
+    background-color: #e42a2a;
+    color: rgb(255, 255, 255);
+    border-radius: 12px;
+    padding: 14px 20px;
+    border: none;
+    cursor: pointer;
+    width: 200px;
+    margin-left: 120px;
+    margin-top: -20px;
+}
+
+button:hover {
+   opacity: 0.8;
+}
+
+.submitDiv{
+    display: flex;
+    justify-content: center;
+}
+
+.form-label{
+    display: inline-flex;
+    margin-right: 100px;
+    margin-left: 50px;
+}
+.phoneLabel{
+    display: inline-flex;
+    margin-right: 43px;
+    margin-left: 50px;
+}
+.fullLabel{
+    display: inline-flex;
+    margin-right: 72px;
+    margin-left: 50px;
+}
+
+#email,#fullname,#phone,#password {
+    padding: 10px 20px;
+    margin: 11px 0;
+    box-sizing: border-box;
+    border-radius: 8px;
+    width: 250;
+    border: solid 0.5px;
+    margin-right: 10%;
+    outline: none;
+    box-shadow: initial;
+}
+
+.emailDiv ,.phoneDiv , .passDiv{
+    margin-top: -50px;
+}
+
+.form-group{
+    width: 500px;
+    
+}
+
+@media all and (min-width: 480px) {
+    .form {
+        border: 2px solid #f1f1f1;
+        border-radius: 12px;
+        width: 600px;
+        height: 450px;
+        margin-top: 500px;
+        align-items: center;
+        justify-content: center;
+        margin-top: 100px;
+        margin-left: 420px;
+        display: grid;
+    }
+    
+  
+}
