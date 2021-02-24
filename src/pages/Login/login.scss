@@ -1,0 +1,134 @@
+.container{
+    display: flex;
+    justify-content: center;    
+}
+.loginForm {
+    border: 2px solid #f1f1f1;
+    border-radius: 12px;
+    width: 500px;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    display: grid;
+
+}
+
+#emails {
+    padding: 10px 20px;
+    margin: 11px 0;
+    box-sizing: border-box;
+    border-radius: 8px;
+    width: 250px;
+    border: solid 0.5px;
+    margin-right: 10%;
+    outline: none;
+    box-shadow: initial;
+}
+
+#passwords{
+    padding: 10px 15px;
+    margin: 11px 0;
+    box-sizing: border-box;
+    border-radius: 8px;
+    width: 250px;
+    border: solid 0.5px;
+    margin-right: 10%;
+    outline: none;
+    box-shadow: initial;
+}
+
+#loginbtn {
+    background-color: #e42a2a;
+    color: rgb(255, 255, 255);
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    width: 250px;
+    margin-top: -20px;
+    margin-left: 40px;
+}
+
+#signupbt{
+    background-color: #e42a2a;
+    color: rgb(255, 255, 255);
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    width: 250px;
+    margin-left: 40px;
+}
+
+button:hover {
+   opacity: 0.8;
+}
+
+.loginDiv{
+    display: flex;
+    justify-content: center;
+}
+
+.emailLabels{
+    display: inline-flex;
+    align-items: center;
+    margin-right: 80px;
+    margin-left: 50px;
+}
+
+.passwordLabels{
+    display: inline-flex;
+    margin-right: 52px;
+    margin-left: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.passDivLogin{
+    margin-top: -50px;
+}
+
+#SignUpBtn{
+    display: grid;
+    justify-content: center;
+    
+}
+#signupmsg{
+    margin-top: -20px;
+    margin-left: 47px;
+}
+
+.form-group{
+    width: 500px;
+    display: flex;
+}
+h3{
+    display: flex;
+    justify-content: center;
+    color: #e42a2a;
+}
+
+.emailControldiv{
+    width: -webkit-fill-available;
+}
+
+@media screen and (max-width: 800px) {
+
+    .container{
+        display: flex;
+        justify-content: center;    
+    }
+
+    .loginForm {
+        border: 2px solid #f1f1f1;
+        border-radius: 12px;
+        width: 455px;
+        height: 400px;
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        margin-top: 100px;
+        margin-left: 124px;
+    }
+
+}
