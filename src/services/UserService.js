@@ -14,6 +14,20 @@ let LoginService = (data) => {
     }
 }
 
+let Register = (data) => {
 
+    try{
+        console.log("service: ",data);
+        
+        //const response = axios.post(process.env.REACT_APP_BASE_URL+apiConst.signup,loginData);
+        const response = axios.post("https://backend-bookstore.herokuapp.com/bookstore_user/registration",data);
+        console.log(response);
+        
+        return response;
+    }
+    catch (error){
+        return error;
+    }
+}
 
 export default {LoginService, Register}
