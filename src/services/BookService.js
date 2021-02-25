@@ -1,16 +1,14 @@
 import axios from 'axios'
-import apiConst from '../apiConstant/userApiConstant.js'
+import apiConst from '../apiConstant/bookApiConstant.js'
 
-const getBookService = () => {
+export function getBookService() {
 
     try{
         
-        const response = axios.get("https://backend-bookstore.herokuapp.com/bookstore_user/get/book");
+        const response = axios.get(process.env.REACT_APP_BOOK_URL+apiConst.getbook);
         return response;
     }
     catch (error){
         return error;
     }
 }
-
-export default {getBookService}
