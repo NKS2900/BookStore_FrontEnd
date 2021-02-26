@@ -1,0 +1,26 @@
+.navbarr {
+    background-color: brown;
+    overflow: hidden;
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    padding: 0%;
+    z-index: 1000; 
+}
+
+#serchbox{
+    width: 500px;
+    border-radius: 0px;
+    margin-left: 50px;
+    border-radius: 2px;
+}
+
+#brand{
+    margin-left: 15%;
+}
+#cartsvg {
+    margin-left: 190px;
+    color: white;
+    display: inline-flex;
+    justify-content: space-evenly;
+}
