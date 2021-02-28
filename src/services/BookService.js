@@ -41,3 +41,18 @@ export function getCartBooks() {
         return error;
     }
 }
+
+export function removeCartItem(_id) {
+
+    try{
+        
+        const response = axios.delete(process.env.REACT_APP_BOOK_URL+apiConst.remove+_id,
+            {
+                headers: { 'x-access-token': localStorage.getItem('token') },
+            });
+        return response;
+    }
+    catch (error){
+        return error;
+    }
+}
