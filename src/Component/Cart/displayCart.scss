@@ -1,0 +1,183 @@
+.mainBody{
+  display: flex;
+  justify-content: center;
+}
+
+.cartmainDiv {
+    border: 0.1px solid grey;
+    border-radius: 5px;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 800px;
+    height: auto;
+    margin-top: 100px;
+    display: grid;
+  }
+
+  .cartBody{
+    display: flex;
+    margin-top: 4%;
+  }
+
+  #plusMinus{
+    width: 38px;
+    padding-left: 12px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+  }
+  .childBody{
+    height: fit-content;
+  }
+ 
+  .button-opn{
+    display: flex;
+    margin-top: 20%;
+  }
+
+  #remov{
+    color: rgb(0, 0, 0);
+    background-color: #ffffff;
+    border-color: #e0e0e0;
+    padding: 0%;
+    padding-left: 5px;
+    margin-left: 11px;
+    padding-right: 5px;
+    
+  }
+
+  .bookCoverd{
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    background-color: #ffffff;
+    height: fit-content;
+  }
+img{
+    vertical-align: middle;
+    border-style: none;
+    height: 145px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+// #pdiv{
+//     display: flex;
+//     height: fit-content;
+//     align-items: center;
+//     margin-left: 10%;
+//     // padding-left: 12%;
+//     // padding-top: 3%;
+// }
+#mycart{
+  font-size: 1.3rem;
+}
+#bookNameCart{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.cartBodyy{
+  justify-content: center;
+}
+
+#placeOrder{
+  margin-left: 50px;
+  color: #fff;
+  background-color: #3b82ce;
+  border-color: #4d84bf;
+  width: fit-content;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+
+}
+#place-btn-div{
+ margin-top: 10px;
+}
+
+.customer-detail{
+    display: flex;
+    justify-content: center;
+}
+
+.formCustomer {
+  border: 2px solid #d1cece;
+  border-radius: 5px;
+  width: 800px;
+  height: 500px;
+  margin-top: 500px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 45px;
+  display: grid;
+  margin-bottom: 40px;
+}
+.formControl{
+  display: flex;
+}
+
+#emails,#fullnames {
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border-radius: 2px;
+  border: solid 0.5px;
+  outline: none;
+  box-shadow: initial;
+  width:fit-content
+}
+.formControllpin{
+    display: flex;
+    margin-top: -50px;
+}
+
+#address{
+  padding: 3px 10px;
+  box-sizing: border-box;
+  border-radius: 2px;
+  border: solid 0.5px;
+  outline: none;
+  box-shadow: initial;
+  width: 442px;
+  height: 100px;
+  margin-top: -50px;
+}
+#phoness ,#pincodes,#citytown{
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border-radius: 2px;
+  border: solid 0.5px;
+  outline: none;
+  box-shadow: initial;
+  width:fit-content;
+  margin-left: 2%;
+}
+
+.formControltown{
+  display: flex;
+    margin-top: -30px;
+}
+#cont-btn{
+  width: auto;
+}
+.contdiv{
+  width: fit-content;
+  margin-top: -50px;
+  margin-left: 357px;
+
+}
+#detailsMsg{
+  border: 0.1px solid grey;
+  border-radius: 5px;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 800px;
+  height: 63px;
+  margin-top: 31px;
+  margin-bottom: 50px;
+}
+#pid{
+  margin-top: 10px;
+  display: flex;
+  margin-left: 20px;
+}
