@@ -12,3 +12,17 @@ export function getBookService() {
         return error;
     }
 }
+
+export function addToCart(val) {
+
+    try{
+        const response = axios.post(process.env.REACT_APP_BOOK_URL+apiConst.addtocart+val,null,
+            {
+                headers: { 'x-access-token': localStorage.getItem('token') },
+            });
+        return response;
+    }
+    catch (error){
+        return error;
+    }
+}
