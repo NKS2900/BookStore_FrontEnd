@@ -71,3 +71,18 @@ export function updateCartItem(_id,data) {
         return error;
     }
 }
+
+export function updateAddress(data) {
+
+    try{
+        
+        const response = axios.put(process.env.REACT_APP_BOOK_URL+apiConst.address,data,
+            {
+                headers: { 'x-access-token': localStorage.getItem('token') },
+            });
+        return response;
+    }
+    catch (error){
+        return error;
+    }
+}
