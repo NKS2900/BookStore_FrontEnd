@@ -20,6 +20,23 @@ const DisplayCart = () => {
     const [city,setCity] = useState('');
     const [state,setState] = useState('');
 
+    let addressData={
+        addressType,
+        fullAddress,
+        city,
+        state,
+      }
+      
+    const handleAddress = () =>{
+        
+        updateAddress(addressData).then((response)=>{
+            if(response.status === 200){
+                setShowEdit(!showEdit);
+                setShowOrderForm(!showOrderForm);
+                console.log(response);
+            }
+        })
+    }  
 
     const handleRemove = (_id) =>{
         removeCartItem(_id).then((response)=>{
