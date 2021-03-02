@@ -56,3 +56,18 @@ export function removeCartItem(_id) {
         return error;
     }
 }
+
+export function updateCartItem(_id,data) {
+
+    try{
+        
+        const response = axios.put(process.env.REACT_APP_BOOK_URL+apiConst.update+_id,data,
+            {
+                headers: { 'x-access-token': localStorage.getItem('token') },
+            });
+        return response;
+    }
+    catch (error){
+        return error;
+    }
+}
