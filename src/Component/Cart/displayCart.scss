@@ -93,7 +93,10 @@ img{
 
 }
 #place-btn-div{
- margin-top: 10px;
+  margin-top: 10px;
+  width: 737px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .customer-detail{
@@ -154,17 +157,19 @@ img{
 }
 
 .formControltown{
-  display: flex;
+    display: flex;
     margin-top: -30px;
 }
-#cont-btn{
+#cont-btn {
   width: auto;
+  margin-left: 80px;
 }
 .contdiv{
   width: fit-content;
   margin-top: -50px;
-  margin-left: 357px;
-
+  //margin-left: 357px;
+  display: flex;
+  justify-content: space-between;
 }
 #detailsMsg{
   border: 0.1px solid grey;
@@ -180,4 +185,49 @@ img{
   margin-top: 10px;
   display: flex;
   margin-left: 20px;
+}
+
+.order-summary{
+  display: flex;
+  justify-content: center;
+  margin-top: -20px;
+}
+
+#editdiv{
+  display: flex;
+}
+#edit{
+    display: flex;
+    color: blue;
+    margin-left: 290px;
+}
+.bi-dash-circle ,.bi-plus-circle{
+  cursor: pointer;
+}
+#radiob{
+  display: flex;
+  margin-left: 20px;
+}
+.cartmainDivOrder{
+  border: 0.1px solid grey;
+  border-radius: 5px;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 800px;
+  height: auto;
+  margin-bottom: 50px;
+  display: grid;
+}
+#orderSummary{
+  margin-top: 15px;
+    margin-bottom: 1rem;
+    margin-left: 50px;
+}
+#checkout{
+  margin-left: 200px;
+  color: #fff;
+  background-color: #3b82ce;
+  border-color: #4d84bf;
+  width: fit-content;
+  margin-bottom: 20px;
 }
