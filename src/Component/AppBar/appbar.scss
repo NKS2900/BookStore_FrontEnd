@@ -6,6 +6,7 @@
     width: 100%; 
     padding: 0%;
     z-index: 1000; 
+    height: 63px;
 }
 
 #serchbox{
@@ -17,10 +18,36 @@
 
 #brand{
     margin-left: 15%;
+    cursor: pointer;
 }
 #cartsvg {
-    margin-left: 190px;
+    margin-left: 25px;
     color: white;
     display: inline-flex;
     justify-content: space-evenly;
+    cursor: pointer;
 }
+#wishSvg{
+    margin-left: 150px;
+    color: white;
+    display: inline-flex;
+    justify-content: space-evenly;
+    cursor: pointer;
+}
+
+#cartCounts{
+    margin-top: -10px;
+    margin-bottom: 0rem;
+    margin-left: -5px;
+    overflow-anchor: visible;
+}
+#wishCounts {
+    margin-top: -33px;
+    margin-bottom: 1rem;
+    margin-left: 163px;
+    color: #ffffff;
+    overflow-anchor: visible;
+}
+
+
+    

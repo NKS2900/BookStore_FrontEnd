@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+import {Form,Button} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import service from '../../services/UserService.js'
+
 import {useHistory} from "react-router-dom"
 import './signup.scss'
+import { registerService } from '../../services/UserService';
 
 const Signup = () => {
     const history = useHistory();
@@ -53,6 +53,11 @@ const Signup = () => {
   // ----------------------------------------------//
 
     const handleSignup = () => {
+        setNameerror(false);
+        setEmailerror(false);
+        setPhoneError(false);
+        setPasserror(false);
+
         let signupData = {
             fullName,
             email,
@@ -60,9 +65,10 @@ const Signup = () => {
             phone
         }
         if (validation()) {
-            service.Register(signupData).then((response) => {
+            registerService(signupData).then((response) => {
                 if (response.status === 200) {
                     alert("signup Successfull");
+                    history.push("/login");
                 }
                 else {
                     alert("Registration Faield..");

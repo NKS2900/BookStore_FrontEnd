@@ -1,27 +1,73 @@
-.maindiv{
+.maindiv {
+    display: flex;
+    overflow-wrap: break-word;
+    flex-wrap: wrap; 
+    margin-right: 5%;
+    margin-left: 13%;
+    margin-top: 80px;
+    
+}
+#cartdiv{
     display: flex;
     overflow-wrap: break-word;
     flex-wrap: wrap; 
     margin-right: 10%;
-    margin-left: 13.5%;
-    //padding: 20px;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 .map-div{
     padding-left: 25px;
 }
 
+#griddiv{
+    display: grid;
+}
+
 .cardContainer {
     display: grid;
-    height: 280px;
+    height: 290px;
     border-radius: 10px;
     display: flex;
     margin-bottom: 20px;
     width: 220px;
     border-radius: 2px;
-
    
-  }
+  }.cardContainer:hover {
+    
+    .discribe {
+      opacity: 100%;
+    }
+}
+
+.dropdown{
+    margin-left:345px;  
+}
+#itemss{
+    padding:0px
+}
+
+#dropdown-basic{
+    color: #000;
+    background-color: #ffffff;
+    border-color: #000000;
+    border-radius: 2px;
+    font-size: small;
+}
+.dropdown-menu{
+    font-size: small;
+    padding: 10px;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+    float: left;
+    min-width: 8.5rem;
+    z-index: 1000;
+   
+}
+
   .card-body{
       width: 200px;
       height: 200px;
@@ -40,8 +86,8 @@
 
 .btn-div{
     display: flex;
-    width: 260px;
-    
+    width: 204px;
+    margin-top: 10px;
 }
 
 #addbag-btn {
@@ -80,6 +126,92 @@ img{
     margin-bottom: 10px;
 }
 
+
 .bookname{
+    margin-left: 10%;   
+}
+
+.bookname2{
     margin-left: 10%;
+    font-size: small;
+    color: gray;
+}
+
+#bookCount{
+    margin-left: 25px;
+    margin-bottom: -35px;
+}
+
+.NV {
+    display: none;
+} 
+
+.discribe{
+    opacity: 0%;
+}
+
+#addedToBag{
+    overflow: visible;
+    
+}
+#addbag-btns{
+    width: inherit;
+    margin-left: 15px;
+}
+
+
+@media screen and (max-width: 800px) {
+    .maindiv {
+        display: flex;
+        justify-content: center;
+        overflow-wrap: break-word;
+        flex-wrap: wrap; 
+        margin-right: 10%;
+        margin-left: 13%;
+        margin-top: 80px;
+        width: fit-content;
+    }
+    .dropdown{
+        margin-left: 10px;
+    }
+
+    #bookCount{
+        margin-left: 0px;
+        margin-bottom: -35px;
+    }
+
+    // span#brand{
+        
+    //     cursor: pointer;
+    // }
+    
+    #cartdiv{
+        display: flex;
+        overflow-wrap: break-word;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        justify-content: space-evenly;
+        margin-top: 50px;
+    }
+
+    h5{
+        font-size: 1rem;
+    }
+    input#serchbox {
+        width: 166px;
+        border-radius: 0px;
+        margin-left: 0px;
+        border-radius: 2px;
+    }
+    
+    .cardContainer {
+        display: grid;
+        height: 290px;
+        border-radius: 10px;
+        display: flex;
+        margin-bottom: 20px;
+        width: 220px;
+        border-radius: 2px;
+       
+      }
 }

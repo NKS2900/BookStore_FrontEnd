@@ -15,7 +15,7 @@
 //     margin: 11px 0;
 //     box-sizing: border-box;
 //     border-radius: 12px;
-//     width: 50%;
+//     width: 300px;
 //     border: none;
 //     margin-right: 10%;
 //     outline: none;
@@ -23,12 +23,12 @@
 // }
 
 #signup-btn {
-    background-color: #e42a2a;
+    background-color: brown;
     color: rgb(255, 255, 255);
-    border-radius: 12px;
+    border-radius: 5px;
     border: none;
     cursor: pointer;
-    width: 250px;
+    width: 300px;
     display: flex;
     justify-content: center;
     margin-top: -20px;
@@ -88,8 +88,8 @@ button:hover {
     padding: 10px 20px;
     margin: 11px 0;
     box-sizing: border-box;
-    border-radius: 8px;
-    width: 250;
+    border-radius: 2px;
+    width: 200;
     border: solid 0.5px;
     margin-right: 10%;
     outline: none;
@@ -107,13 +107,17 @@ button:hover {
 h4{
     display: flex;
     justify-content: center;
-    color: #e42a2a;
+    color: brown;
     margin-top: -30px;
 }
 
 .formControll{
     width: -webkit-fill-available;
+}
 
+.invalid-feedback{
+    margin-top: -10px;
+    padding-left: 10px;
 }
 
 //===================================
@@ -129,8 +133,8 @@ h4{
         height: 620px;
         display: grid;
         justify-content: center;
-        margin-top: 60px;
-        margin-left: 90px;
+        margin-top: 25px;
+        margin-left: 120px;
         
     }
 
@@ -138,18 +142,15 @@ h4{
 .emailLabel{
     display: inline-flex;
     align-items: center;
-    margin-right: 110px;
     margin-left: 50px;
 }
 .phoneLabel{
     display: inline-flex;
     align-items: center;
-    margin-right: 41px;
     margin-left: 50px;
 }
 .fullLabel{
     display: inline-flex;
-    margin-right: 78px;
     margin-left: 50px;
     align-items: center;
 }
@@ -161,14 +162,14 @@ h4{
     align-items: center;
 }
 
-#email,#fullname,#phone,#password {
+input#email,input#fullname,input#phone,input#password {
     padding: 10px 20px;
     margin: 11px 0;
     box-sizing: border-box;
-    border-radius: 8px;
-    width: 250;
+    border-radius: 2px;
+    width: 200px;
     border: solid 0.5px;
-    margin-right: 10%;
+    //margin-right: 10%;
     outline: none;
     box-shadow: initial;
 }

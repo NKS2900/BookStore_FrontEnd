@@ -15,11 +15,24 @@
 
 }
 
-#emails {
+
+// input[type=text],  input[type=email], input[type=number], textarea, select {
+//     padding: 10px 10px;
+//     margin: 11px 0;
+//     box-sizing: border-box;
+//     border-radius: 12px;
+//     width: 300px;
+//     border: none;
+//     margin-right: 10%;
+//     outline: none;
+//     box-shadow: initial;
+// }
+
+#emailsss {
     padding: 10px 20px;
     margin: 11px 0;
     box-sizing: border-box;
-    border-radius: 8px;
+    border-radius: 2px;
     width: 250px;
     border: solid 0.5px;
     margin-right: 10%;
@@ -31,7 +44,7 @@
     padding: 10px 15px;
     margin: 11px 0;
     box-sizing: border-box;
-    border-radius: 8px;
+    border-radius: 2px;
     width: 250px;
     border: solid 0.5px;
     margin-right: 10%;
@@ -40,23 +53,23 @@
 }
 
 #loginbtn {
-    background-color: #e42a2a;
+    background-color: brown;
     color: rgb(255, 255, 255);
-    border-radius: 12px;
+    border-radius: 5px;
     border: none;
     cursor: pointer;
-    width: 250px;
+    width: 300px;
     margin-top: -20px;
     margin-left: 40px;
 }
 
 #signupbt{
-    background-color: #e42a2a;
+    background-color: brown;
     color: rgb(255, 255, 255);
-    border-radius: 12px;
+    border-radius: 5px;
     border: none;
     cursor: pointer;
-    width: 250px;
+    width: 300px;
     margin-left: 40px;
 }
 
@@ -105,7 +118,7 @@ button:hover {
 h3{
     display: flex;
     justify-content: center;
-    color: #e42a2a;
+    color: brown;
 }
 
 .emailControldiv{

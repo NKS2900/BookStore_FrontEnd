@@ -3,3 +3,15 @@
 #bookCount{
     display: flex;
 }
+
+.pageInition{
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
+}
+
+.page-item:last-child .page-link {
+    border-top-right-radius: .25rem;
+    border-bottom-right-radius: .25rem;
+    margin-left: 15px;
+}

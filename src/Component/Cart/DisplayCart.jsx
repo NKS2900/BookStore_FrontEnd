@@ -3,10 +3,11 @@ import cover from '../../assets/letusc.png'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './displayCart.scss'
 import { Button, Card } from 'react-bootstrap';
-import {  getCartBooks, removeCartItem, updateAddress, updateCartItem } from '../../services/BookService';
+import {  addOrder, getCartBooks, getWishList, removeCartItem, updateAddress, updateCartItem } from '../../services/BookService';
 import AppBar from '../AppBar/Appbar';
 import {Form} from "react-bootstrap";
 import Spinner from 'react-bootstrap/Spinner'
+import {useHistory} from "react-router-dom"
 
 const bookCoverData=require('../../assets/bookCover.json');
 
@@ -19,6 +20,8 @@ const DisplayCart = () => {
     const [fullAddress,setFullAddress] = useState('');
     const [city,setCity] = useState('');
     const [state,setState] = useState('');
+    const [wishList,setWishList]=useState([]);
+    const history = useHistory();
 
     let addressData={
         addressType,
@@ -26,9 +29,35 @@ const DisplayCart = () => {
         city,
         state,
       }
+
+    const handleOrder = () =>{
+       
+       bookLists.map((item)=> {
+           console.log("foreac")
+        const data=
+       {
+        "orders": [
+          {
+            "product_id": item.product_id._id.toString(),
+            "product_name": item.product_id.bookName.toString(),
+            "product_quantity":parseInt(item.quantityToBuy),
+            "product_price": parseInt(item.product_id.price)
+          }
+        ]
+      }
+       console.log(data);
+            addOrder(data).then((response)=>{
+            if(response.status === 200){
+                console.log(response);
+                setFlag(true);
+                handleRemove(item.product_id._id);
+                history.push("/order");
+            }
+        })
+       });
+    } 
       
     const handleAddress = () =>{
-        
         updateAddress(addressData).then((response)=>{
             if(response.status === 200){
                 setShowEdit(!showEdit);
@@ -87,8 +116,22 @@ const DisplayCart = () => {
         });
     }
 
+    const getWishItem=()=>{
+
+        getWishList().then((response) =>{
+            if(response.status === 200){
+                setWishList(response.data.result);
+                //console.log(bookLists.product_id[0]);
+                console.log(response);
+            }
+        }).catch(()=> {
+            console.log("Error while Fetching Cart!!!")
+        });
+    }
+
     useEffect(()=>{
-        getCartBook()
+        getCartBook(),
+        getWishItem()
 
     },[])
 
@@ -107,17 +150,18 @@ const DisplayCart = () => {
 
     return(
         <div className="cartBodyy">
-             <AppBar/>
+             <AppBar countss={wishList.length} counts={bookLists.length}/>
         <div className="mainBody">
         
         <div className="cartmainDiv">
         {/* <div id="pdiv"><h5 id="mycart">My Cart(2)</h5></div> */}
+        <p id="orderSummary"><b>My Cart({bookLists.length})</b></p>
         {bookLists.map((item) => (   
                 <div className="cartBody" key={item._id}>
                 <div className="bookCoverd"><img  src={item.product_id.bookImage} /></div>
                 <div className="childBody">
                     <div ><b>{item.product_id.bookName}</b></div>
-                    <div id="bookNameCart">{item.product_id.bookName}</div>
+                    <div id="bookNameCart">{item.product_id.author}</div>
                     <div><b>Rs. {item.product_id.price}</b></div>
                     
                     <div className="button-opn">
@@ -254,7 +298,7 @@ const DisplayCart = () => {
             </div>
              ))}
                <div id="place-btn-div">
-             <Button id="checkout" >CHECKOUT</Button>
+             <Button id="checkout" onClick={()=>handleOrder()} >CHECKOUT</Button>
              </div>
              </div>:null}
         </div>

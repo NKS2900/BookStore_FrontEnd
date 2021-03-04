@@ -1,19 +1,19 @@
 import React,{useEffect, useState} from 'react'
-import {Card,Button,OverlayTrigger,Dropdown} from 'react-bootstrap'
+import {Card,Button,Dropdown} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './displayBook.scss'
 import ShowDescription from './ShowDescription';
-import { addToCart } from '../../services/BookService';
+import { addToCart, addToWishList } from '../../services/BookService';
 
 const DisplayBook = (props) => {
     const [showDropDown,setShowDropDown]=useState(true);
     const [open,setOpen]=useState(false);
     const [showButton,setShowButton]=useState(false);
+    const [bookID, setid] = useState('');
+    const [showLowToHigh,setShowLowToHigh]=useState(false);
+    const [showHighToLow,setShowHighToLow]=useState(false);
+    const [showBooks,setShowBooks]=useState(true);
     
-    const handleButton=()=>{
-        
-    }
-
     const handlePopup=()=>{
         setOpen(!open);
     }
@@ -22,13 +22,45 @@ const DisplayBook = (props) => {
         console.log("card called :", val);
         addToCart(val).then((response)=>{
             if(response.status===200){
-                alert("boo added to cart..."); 
+                setid(val);
+                props.getCartBook()
+                //alert("boo added to cart..."); 
                 // setShowButton(true);  
             }
         }).catch(()=> {
             console.log("Error while Fetching Books!!!")
         });
     }
+
+    const handleWishlist=(val)=>{
+        console.log("card called :", val);
+        addToWishList(val).then((response)=>{
+            if(response.status===200){
+                //setid(val);
+                alert("boo added to wishlist..."); 
+                // setShowButton(true);  
+            }
+        }).catch(()=> {
+            console.log("Error while Fetching Books!!!")
+        });
+    }
+
+    
+    const [isLowTOHigh,setisLowTOHigh] = React.useState(false)
+    const [isNoteSort,setisNoteSort] = React.useState(false)
+
+    const handleLow=()=>{
+        setShowLowToHigh(true)
+        //setShowBooks(!showBooks )
+        setisNoteSort(true)
+    }
+
+    const handleHigh=()=>{
+        setShowLowToHigh(false)
+        //setShowBooks(!showBooks )
+        setisNoteSort(true)
+    }
+
     return(
         <div >
             <div className="maindiv">
@@ -40,13 +72,22 @@ const DisplayBook = (props) => {
                     </Dropdown.Toggle>
                     {showDropDown?
                     <Dropdown.Menu id="dropdownmenu">
-                        <Dropdown.Item id="itemss" >Price:Low To High</Dropdown.Item>
-                        <Dropdown.Item id="itemss">Price:High To Low</Dropdown.Item>
+                        <Dropdown.Item id="itemss" onClick={()=>handleLow()}>Price:Low To High</Dropdown.Item>
+                        <Dropdown.Item id="itemss" onClick={()=>handleHigh()}>Price:High To Low</Dropdown.Item>
                     </Dropdown.Menu>:null}
                 </Dropdown>    
             </div></div>
+            
             <div id="cartdiv">
-            {props.item.map((item) => (   
+
+            {(isNoteSort?(showLowToHigh?(props.item.sort((a, b) => a.price > b.price ? 1 : -1)):
+            (props.item.sort((a, b) => a.price < b.price ? 1 : -1))):props.item.filter(
+        (i) => i.bookName.includes(props.searchData.toString()))).map((item, index) => {
+
+            {/* {props.item.map((item) => */}
+             return(   
+              // {props.item.sort((a,b)=>a.price>b.price ? 1:-1).map((item)=>(  
+            // {props.item.filter(i=>i.bookName === props.search).map((item) => ( 
                 <div className="map-div" key={item._id}>
                 <Card className="cardContainer" >
                     <div className="imageDiv">
@@ -60,17 +101,15 @@ const DisplayBook = (props) => {
                     <div className="bookname2">{item.author}</div>
                     <div className="bookname"><b>Rs.</b> {item.price}</div>
                     <div className="btn-div">
-                        <Button id="addbag-btn" onClick={()=>handleCarts(item._id)} >ADD TO BAG</Button>
-                        <Button id="wish-btn" >WISHLIST</Button>
-                        {/* {showButton?
-                        <button id="addedToBag">Added To Bag</button>
-                        :null} */}
+                
+                         {(item._id === bookID) ? <Button type="button"  id="addbag-btns">ADDED TO BAG</Button> : <Button type="button" id="addbag-btn" onClick={() => handleCarts(item._id)}>ADD TO BAG</Button>}
+                                            {(item._id != bookID) ? <Button type="button" id="wish-btn" onClick={()=>handleWishlist(item._id)}>WISHLIST</Button> : undefined}
+                   
                     </div>
                     </div>
                 </Card>
                 </div>
-            ))}</div>
-
+            )})}</div>
             </div>
         </div>
     )

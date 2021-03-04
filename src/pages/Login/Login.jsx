@@ -3,10 +3,10 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import {FormControl,HelpBlock} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import service from '../../services/UserService.js'
 import {useHistory} from "react-router-dom"
 import './login.scss'
-
+import { loginService } from '../../services/UserService';
+var token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDNiODBkMjkwNzkzMDAwMTUzZGZmN2EiLCJmdWxsTmFtZSI6Ik5rc2F5eWFkIiwiZW1haWwiOiJua3NheXlhZDI5MDBAZ21haWwuY29tIiwiaWF0IjoxNjE0NTEyMzM5LCJleHAiOjE2MTQ1OTg3Mzl9.DCzv1bM6G2tWr0PR6jIUVjmqnEjNrHEBtNh6YG_qQxw"
 export default function Login() {
 
     const [email, setEmail] = useState("");
@@ -16,6 +16,7 @@ export default function Login() {
     const [passerror, setPasserrors] = useState(false);
     const history = useHistory();
 
+    console.log(email)
     const validation=()=>{
 
         let invalidForm=true;
@@ -35,19 +36,23 @@ export default function Login() {
           }
           return invalidForm;
       }
+      
 // ----------------------------------------------//
  const handleLogin=()=>{
-       
+    setErrors(false);
+    setPasserrors(false);
         let loginData ={
             email,
             password
         }
         if(validation())
         {  
-            service.LoginService(loginData).then((response)=>{
+            loginService(loginData).then((response)=>{
             if(response.status === 200){
-                console.log("Login Successfull...")
-                alert("login Successfull");
+                localStorage.clear();
+                localStorage.setItem('token',response.data.result.accessToken);
+                //alert("login Successfull");
+               history.push("/home");
             } 
         }).catch((err)=>{
             alert("login response");
@@ -67,7 +72,7 @@ export default function Login() {
             <Form className="loginForm" > 
                 <h3>BookStore App</h3>
                     <div className="emailDivLogin">
-                    <Form.Group size="lg" controlId="emails">
+                    <Form.Group size="lg" controlId="emailsss">
                     <Form.Label className="emailLabels">Email</Form.Label>
                     <div className="emailControldiv">
                     <Form.Control
@@ -75,7 +80,7 @@ export default function Login() {
                         placeholder="E-mail"
                         required
                         type="email"
-                        onChange={(e) => setEmail(e.target.value)}
+                        onChange={(e) => setEmail(e.target.value)   }
                         isInvalid={!!errors}
                     />
                     <Form.Control.Feedback type="invalid">

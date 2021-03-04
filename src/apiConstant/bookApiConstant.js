@@ -5,4 +5,8 @@ module.exports={
     remove:"/remove_cart_item/",
     update:"/cart_item_quantity/",
     address:"/edit_user",
+    order:"/add/order",
+    wish:"/add_wish_list/",
+    getWish:"/get_wishlist_items",
+    removeWish:"/remove_wishlist_item/",
 }
