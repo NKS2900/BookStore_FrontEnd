@@ -1,0 +1,28 @@
+.parentDivOrder{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+#imgSuccess{
+    vertical-align: middle;
+    border-style: none;
+    height: 240px;
+    margin-top: 80px;
+    margin-bottom: 10px;
+}
+#pds{
+    display: grid;
+    justify-content: center;
+}
+.table {
+    width: 115%;
+    margin-bottom: 2rem;
+    color: #212529;
+    margin-top: 30px;
+}
+#continue-btn{
+    display: block;
+    width: 130%;
+    height: 40px;
+    background-color: #536dc4;
+}
