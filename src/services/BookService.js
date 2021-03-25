@@ -31,11 +31,12 @@ export function addToCart(val) {
 export function getCartBooks() {
 
     try{
-        
+        console.log("getCartBook service:")
         const response = axios.get(process.env.REACT_APP_BOOK_URL+apiConst.getCart,
             {
                 headers: { 'x-access-token': localStorage.getItem('token') },
             });
+            console.log(response);
         return response;
     }
     catch (error){

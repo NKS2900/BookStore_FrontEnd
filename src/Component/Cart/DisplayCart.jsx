@@ -58,13 +58,14 @@ const DisplayCart = () => {
     } 
       
     const handleAddress = () =>{
-        updateAddress(addressData).then((response)=>{
-            if(response.status === 200){
-                setShowEdit(!showEdit);
-                setShowOrderForm(!showOrderForm);
-                console.log(response);
-            }
-        })
+        setShowOrderForm(!showOrderForm);
+        // updateAddress(addressData).then((response)=>{
+        //     if(response.status === 200){
+        //         setShowEdit(!showEdit);
+                
+        //         console.log(response);
+        //     }
+        // })
     }  
 
     const handleRemove = (_id) =>{
@@ -108,8 +109,8 @@ const DisplayCart = () => {
         getCartBooks().then((response) =>{
             if(response.status === 200){
                 setBookLists(response.data.result);
-                console.log(bookLists.product_id[0]);
-                console.log(response);
+                //console.log(bookLists.product_id[0]);
+                console.log("response getCart: ",bookLists);
             }
         }).catch(()=> {
             console.log("Error while Fetching Cart!!!")
@@ -121,8 +122,7 @@ const DisplayCart = () => {
         getWishList().then((response) =>{
             if(response.status === 200){
                 setWishList(response.data.result);
-                //console.log(bookLists.product_id[0]);
-                console.log(response);
+
             }
         }).catch(()=> {
             console.log("Error while Fetching Cart!!!")
@@ -136,11 +136,15 @@ const DisplayCart = () => {
     },[])
 
     for (let i = 0; i < bookLists.length; i++) {
-        for (let j = 0; j < bookCoverData.bookCovers.length; j++) {                   
+        for (let j = 0; j < bookCoverData.bookCovers.length; j++) { 
+            console.log("inside for") 
+            if(!bookLists.product_id===null){
+                console.log();                
             if (bookLists[i].product_id._id===bookCoverData.bookCovers[j].id) {     
                 bookLists[i].product_id.bookImage=bookCoverData.bookCovers[j].bookCover;
                 break;
             }
+        }
         }
     }
 
@@ -156,7 +160,7 @@ const DisplayCart = () => {
         <div className="cartmainDiv">
         {/* <div id="pdiv"><h5 id="mycart">My Cart(2)</h5></div> */}
         <p id="orderSummary"><b>My Cart({bookLists.length})</b></p>
-        {bookLists.map((item) => (   
+        {bookLists.filter((i)=>i.product_id != null).map((item) => (   
                 <div className="cartBody" key={item._id}>
                 <div className="bookCoverd"><img  src={item.product_id.bookImage} /></div>
                 <div className="childBody">
@@ -287,7 +291,7 @@ const DisplayCart = () => {
         
         {showOrderForm?<div className="cartmainDivOrder">
             <p id="orderSummary"><b>Order Summary</b></p>
-            {bookLists.map((item) => (   
+            {bookLists.filter((i)=>i.product_id != null).map((item) => (   
                 <div className="cartBody" key={item._id}>
                 <div className="bookCoverd"><img  src={item.product_id.bookImage} /></div>
                 <div className="childBody">

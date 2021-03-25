@@ -3,7 +3,7 @@ import { Pagination } from 'react-bootstrap'
 
 const Pageinations = (props)=>{
     const [active, setActice]=useState(true);
-    const pageNumbers=useState([]);
+    let pageNumbers=useState([]);
 
     const pageinate=(pageNumber)=>{
         setActice(pageNumber);

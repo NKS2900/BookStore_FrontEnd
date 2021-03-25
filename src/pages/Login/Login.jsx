@@ -15,6 +15,7 @@ export default function Login() {
     const [errors, setErrors] = useState(false);
     const [passerror, setPasserrors] = useState(false);
     const history = useHistory();
+    const [showAlert,setShowAlert]=useState(false);
 
     console.log(email)
     const validation=()=>{
@@ -50,9 +51,14 @@ export default function Login() {
             loginService(loginData).then((response)=>{
             if(response.status === 200){
                 localStorage.clear();
+                console.log("login response: ",response)
                 localStorage.setItem('token',response.data.result.accessToken);
                 //alert("login Successfull");
-               history.push("/home");
+                setShowAlert(true);
+                setTimeout(() => {
+                    history.push("/home");
+                  }, 2000);
+               //history.push("/home");
             } 
         }).catch((err)=>{
             alert("login response");
@@ -120,6 +126,10 @@ export default function Login() {
                         <Button id="signupbt" block size="lg" onClick={handleSignup} >Signup</Button>
                     </div>
                 </Form>
+                {showAlert?
+                    <div class="alert alert-success" role="alert">
+                    Login Successfull...
+                </div>:null}
         </div>
     )
 }
